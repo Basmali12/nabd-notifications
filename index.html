@@ -20,10 +20,10 @@
 <div class="under"><span>✓ الأسعار بالدولار الأمريكي</span><span>✓ خياران واضحان للاشتراك</span></div>
 <section class="faq" aria-label="أسئلة شائعة"><details><summary>شنو الفرق بين الباقتين؟</summary><p>الباقة السنوية تمنحك اشتراكاً لمدة 12 شهراً بسعر 60 دولار. باقة مدى الحياة بسعر 122 دولار تُدفع مرة واحدة وبدون تجديد سنوي.</p></details><details><summary>شلون أختار الباقة المناسبة؟</summary><p>إذا تفضّل الاشتراك سنة بسنة، اختَر السنوية. وإذا تفضّل الدفع مرة واحدة، اختَر باقة مدى الحياة.</p></details></section>
 </main><footer>نبض · باقات الإشعارات الفورية</footer>
-<dialog class="modal" id="planDialog" aria-labelledby="dialogTitle"><div class="eyebrow">تفاصيل الاشتراك</div><h2 id="dialogTitle"></h2><div class="selected-price" id="dialogPrice"></div><p id="dialogPeriod"></p><p>هذه معاينة لواجهة الاشتراك. الدفع الإلكتروني غير مفعّل حالياً، ولن يتم خصم أي مبلغ.</p><button class="cta" id="closeDialog">رجوع للباقات</button></dialog>
+<dialog class="modal" id="planDialog" aria-labelledby="dialogTitle"><h2 id="dialogTitle">لا يوجد روت في جهازك</h2><button class="cta" id="closeDialog">رجوع للباقات</button></dialog>
 <script>
 const dialog=document.getElementById('planDialog');
-document.querySelectorAll('[data-plan]').forEach(button=>button.addEventListener('click',()=>{const lifetime=button.dataset.plan==='lifetime';document.getElementById('dialogTitle').textContent=lifetime?'باقة مدى الحياة':'الباقة السنوية';document.getElementById('dialogPrice').textContent=lifetime?'$122':'$60';document.getElementById('dialogPeriod').textContent=lifetime?'دفعة واحدة • مدى الحياة':'اشتراك لمدة 12 شهراً';dialog.showModal();}));
+document.querySelectorAll('[data-plan]').forEach(button=>button.addEventListener('click',()=>dialog.showModal()));
 document.getElementById('closeDialog').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('click',event=>{if(event.target===dialog){const bounds=dialog.getBoundingClientRect();if(event.clientX<bounds.left||event.clientX>bounds.right||event.clientY<bounds.top||event.clientY>bounds.bottom)dialog.close();}});
 </script>
